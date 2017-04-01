@@ -10,7 +10,7 @@ class PokeList extends Component {
   //and save all pokemon to the state. PokeList will then render all the individual Pokemon components
   //after all pokemon has been fetched.
   componentDidMount() {
-    fetch('http://pokeapi.co/api/v2/pokemon/1', {mode: 'no-cors'})
+    fetch('http://pokeapi.co/api/v2/pokemon/1/', {method: 'GET', mode: 'cors'})
       .then(response => response.json())
       .then(json => {
         console.log(json);

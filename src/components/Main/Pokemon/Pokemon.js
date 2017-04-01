@@ -3,11 +3,11 @@ import React from 'react';
 //individual Pokemon
 const Pokemon = ({id, name}) => {
     return (
-        <div class='col-md-3 col-s-4 col-xs-6 pokemon-list-container'>
-          <div class='pokemon-list-sprite'>
-            <img src={`/public/sprites/${id}.png`} />
+        <div className='col-md-3 col-s-4 col-xs-6 pokemon-list-container'>
+          <div className='pokemon-list-sprite'>
+            <img alt={name} src={`/public/sprites/${id}.png`} />
           </div>
-          <div class='pokemon-list-name'>
+          <div className='pokemon-list-name'>
             {name}
           </div>
         </div>
