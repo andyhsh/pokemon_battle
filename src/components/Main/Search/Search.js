@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Create  extends Component {
+class Search extends Component {
 
   //change state for redux on user inputs
   handleChange = (e) => {
@@ -27,4 +27,4 @@ class Create  extends Component {
   }
 }
 
-export default connect()(Create);
+export default connect()(Search);
