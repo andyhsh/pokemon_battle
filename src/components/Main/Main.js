@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import PokeList from './PokeList/PokeList';
 import Navbar from './Navbar/Navbar';
+import Search from './Search/Search';
 
 class Main extends Component {
 
@@ -9,7 +10,10 @@ class Main extends Component {
     return (
       <div>
         <Navbar />
-        <PokeList />
+        <div className='container'>
+          <Search />
+          <PokeList />
+        </div>
       </div>
     )
   }
