@@ -7,6 +7,7 @@ import Search from './Search/Search';
 import Portrait from '../Battle/Portrait/Portrait';
 import Health from '../Battle/Health/Health';
 import Stats from '../Battle/Stats/Stats';
+import Result from '../Battle/Result/Result';
 
 class Main extends Component {
 
@@ -20,9 +21,21 @@ class Main extends Component {
               <PokeList />
             </div>
           </div>
-          <Portrait/>
-          <Health/>
-          <Stats/>
+          <div className='row'>
+            <Portrait/>
+            <div className='col-md-4'>VS</div>
+            <Portrait/>
+          </div>
+          <div className='row'>
+            <Health/>
+            <div className='col-md-4'></div>
+            <Health/>
+          </div>
+          <div className='row'>
+            <Stats/>
+            <Result/>
+            <Stats/>
+          </div>
       </div>
     )
   }
