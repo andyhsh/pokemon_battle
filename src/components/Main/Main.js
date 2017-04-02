@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PokeList from './PokeList/PokeList';
 import Navbar from './Navbar/Navbar';
 import Search from './Search/Search';
+import Footer from './Footer/Footer';
 
 import Portrait from '../Battle/Portrait/Portrait';
 import Health from '../Battle/Health/Health';
@@ -21,6 +22,7 @@ class Main extends Component {
               <Search />
               <PokeList />
             </div>
+            <Footer />
           </div>
           <div className='row'>
             <Portrait/>

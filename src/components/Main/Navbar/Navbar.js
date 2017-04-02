@@ -5,8 +5,8 @@ import './navbar.css';
 
 const Navbar = () => {
     return (
-      <nav className='navbar navbar-default navbar-static-top'>
-        <div className='container'>
+      <header className='navbar navbar-default navbar-static-top'>
+        <nav className='container'>
           <div className='navbar-header'>
             <a className='navbar-brand' href='#'>PokeGYM</a>
           </div>
@@ -16,8 +16,8 @@ const Navbar = () => {
               <li><a href='#'>About</a></li>
             </ul>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
     )
 }
 
