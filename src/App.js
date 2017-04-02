@@ -15,11 +15,10 @@ import { initStore } from './store/store'
 const store = initStore();
 
 // Save Todo's to localStorage
-// store.subscribe( () => {
-//   var state = store.getState();
-//   console.log('New State', state);
-//   setTodos(state.todos);
-// });
+store.subscribe( () => {
+  const state = store.getState();
+  console.log('New State', state);
+});
 
 // Load Todo's from localStorage
 // var initialTodos = getTodos();

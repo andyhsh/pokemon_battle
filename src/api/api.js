@@ -5,7 +5,7 @@ module.exports = {
     fetch(url, {mode: 'cors'})
       .then(response => response.json())
       .then(json => {
-        console.log(json);
+        console.log('hello from pokeapi');
         //callback function on successful retrieval of data from api
         callback;
       })

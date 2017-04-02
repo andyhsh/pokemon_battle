@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Pokemon from '../Pokemon/Pokemon';
-import {pokeApi} from '../../../api/api';
+import { pokeApi } from '../../../api/api';
+import { fetchedApi } from '../../../actions/actions';
 
 class PokeList extends Component {
 
@@ -10,7 +11,8 @@ class PokeList extends Component {
   //and save all pokemon to the state. PokeList will then render all the individual Pokemon components
   //after all pokemon has been fetched.
   componentDidMount() {
-    pokeApi('http://pokeapi.co/api/v2/pokemon/1/', ()=>console.log('callback function'))
+    const { dispatch } = this.props;
+    pokeApi('http://pokeapi.co/api/v2/pokemon/1/', dispatch(fetchedApi(true)));
   }
 
   renderPokemon() {
