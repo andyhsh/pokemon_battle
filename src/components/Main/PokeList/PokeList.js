@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import fetchJsonp from 'fetch-jsonp';
 
 import Pokemon from '../Pokemon/Pokemon';
+import {pokeApi} from '../../../api/api';
 
 class PokeList extends Component {
 
@@ -10,15 +10,7 @@ class PokeList extends Component {
   //and save all pokemon to the state. PokeList will then render all the individual Pokemon components
   //after all pokemon has been fetched.
   componentDidMount() {
-    fetch('http://pokeapi.co/api/v2/pokemon/1/', {method: 'GET', mode: 'cors'})
-      .then(response => response.json())
-      .then(json => {
-        console.log(json);
-        //dispatch action to update redux pokemonList state
-      })
-      .catch(error => {
-        return console.log('error in pokeAPI', error.message);
-      })
+    pokeApi('http://pokeapi.co/api/v2/pokemon/1/', ()=>console.log('callback function'))
   }
 
   renderPokemon() {
