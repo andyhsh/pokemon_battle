@@ -1,9 +1,17 @@
-//handle the status of initial fetching of information from pokeAPI
-export const fetchedApiReducer = (state = false, action) => {
+export function pokemonReducer(state = [], action) {
   switch (action.type) {
-    case 'FETCHED_API':
-      return action.isLoading;
+    case 'FETCH_POKEMON_SUCCESS':
+      return action.pokemon;
     default:
       return state;
   }
 };
+
+export function fetchPokemonReducer(state = false, action) {
+    switch (action.type) {
+        case 'FETCHING_POKEMON':
+            return action.isLoading;
+        default:
+            return state;
+    }
+}
