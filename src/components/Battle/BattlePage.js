@@ -4,6 +4,7 @@ import Portrait from './Portrait/Portrait';
 import Health from './Health/Health';
 import Stats from './Stats/Stats';
 import Result from './Result/Result';
+import Versus from '../../../public/images/versus-vs.png';
 
 class App extends Component {
   render() {
@@ -11,7 +12,9 @@ class App extends Component {
         <div className='container'>
             <div className='row'>
                 <Portrait/>
-                <div className='col-md-4'>VS</div>
+                <div className='col-md-4'>
+                    <img src={Versus} />
+                </div>
                 <Portrait/>
             </div>
             <div className='row'>
