@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import css from './pokemon.css';
+import './pokemon.css';
 
 //individual Pokemon
 class Pokemon extends Component {
 
-  handleClick = () => {
-    console.log('click!');
+  //Choose pokemon
+  handleClick = (e) => {
+    console.log(e.target.dataset.id);
+    let pokemonChosen = e.target.dataset.id;
     //check whether it is player 1 or player 2's turn
 
     //if player 1, render ChoiceList and populate player 1
@@ -21,9 +23,9 @@ class Pokemon extends Component {
 
     return (
       <div className='col-md-3 col-xs-6'>
-        <div className='pokemon-container'>
+        <div className='pokemon-container' onClick={this.handleClick}>
           <div className='pokemon-sprite'>
-            <img alt={name} src={require(`../../../../public/sprites/${id}.png`)} width={120} height={120} onClick={this.handleClick} />
+            <img alt={name} data-id={id} src={require(`../../../../public/sprites/${id}.png`)} width={120} height={120} />
           </div>
           <div className='pokemon-name'>
             {name}

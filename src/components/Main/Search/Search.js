@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { setSearchPokemon } from '../../../actions/actions';
+
 class Search extends Component {
 
   //change state for redux on user inputs
   handleChange = (e) => {
-    console.log(e.target.value);
+    const { dispatch } = this.props;
+    let searchFilter = this.refs.searchText.value;
+    dispatch(setSearchPokemon(searchFilter));
   }
 
   render() {
@@ -13,7 +17,7 @@ class Search extends Component {
     	<div className="row">
         <div className="col-md-4 col-md-offset-4">
           <div className="input-group col-md-12">
-              <input type="text" className="form-control input" placeholder="Search Pokemon"
+              <input type="text" ref='searchText' className="form-control input" placeholder="Search Pokemon"
                onChange={this.handleChange} />
               <span className="input-group-btn">
                   <button className="btn btn-default" type="button">

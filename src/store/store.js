@@ -8,7 +8,7 @@ export const initStore = () => {
 
   //combine all reducers in reducers.jsx to form initStore
   const rootReducer = combineReducers({
-    pokemonList : pokemonReducer,
+    pokemonList : pokemonReducer
     // searchText: searchTextReducer,
     // showCompleted: showCompletedReducer,
     // todos: todoReducer,

@@ -32,3 +32,10 @@ export function fetchPokemonSuccess(pokemon){
     pokemon
   }
 }
+
+export function setSearchPokemon(searchPokemon){
+  return {
+    type: 'SET_SEARCH_POKEMON',
+    searchPokemon
+  };
+};

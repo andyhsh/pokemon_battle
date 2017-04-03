@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 
 import Pokemon from '../Pokemon/Pokemon';
 import Loading from '../Loading/Loading';
+
 import { fetchPokemon } from '../../../actions/actions';
-import css from './pokelist.css';
+import { filterPokemon } from '../../../api/api';
+
+import './pokelist.css';
 
 class PokeList extends Component {
 
@@ -26,8 +29,9 @@ class PokeList extends Component {
 
     //if its finished loading and finished fetching pokemon from pokeAPI, begin rendering pokemon
     if(!pokemonList.loading && pokemonList.pokemon){
-      return pokemonList.pokemon.map((pokemon, index) => {
-        return <Pokemon key={pokemon.name} id={index+1} name={pokemon.name} />
+
+      return filterPokemon(pokemonList.pokemon, pokemonList.filter).map((pokemon, index) => {
+        return <Pokemon key={pokemon.name} id={pokemon.url.match(/([^\/]*)\/*$/)[1]} name={pokemon.name} />
       })
      }  else if (pokemonList.loading){
        //loading icon placeholder

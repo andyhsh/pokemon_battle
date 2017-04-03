@@ -7,6 +7,18 @@ module.exports = {
       .catch(error => {
         return console.log('error in pokeAPI: ', error.message);
       })
+  },
+
+  filterPokemon: function(pokemonList, searchText) {
+    let filteredPokemon = pokemonList;
+
+    // Filter by searchText
+    filteredPokemon = filteredPokemon.filter((pokemon) => {
+      //returns all true if searchText is nil. Else, return true if searchText matches todo.text
+      return searchText.length === 0 || pokemon.name.indexOf(searchText) > -1;
+    });
+
+    return filteredPokemon;
   }
 
 

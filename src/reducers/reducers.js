@@ -1,9 +1,8 @@
 const initialState = {
-                          pokemonList: {pokemon: [], loading: true}
-
+                          pokemonList: {pokemon: [], loading: true, filter: ''}
                         };
 
-export function pokemonReducer (state = initialState.pokemonList, action) {
+export const pokemonReducer = (state = initialState.pokemonList, action) => {
   switch (action.type) {
     case 'FETCH_POKEMON_SUCCESS':
       return {
@@ -15,15 +14,12 @@ export function pokemonReducer (state = initialState.pokemonList, action) {
         ...state,
         loading: action.isLoading
       }
+    case 'SET_SEARCH_POKEMON':
+      return {
+        ...state,
+        filter: action.searchPokemon
+      }
     default:
       return state;
     }
 }
-
-// export function battle (state = [], action) {
-//   switch (action.type) {
-//     //case
-//     default:
-//       return state;
-//   }
-// }
