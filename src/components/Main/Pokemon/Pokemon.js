@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { choosePokemon } from'../../../actions/actions';
+import { playerOneChoosePokemon, playerTwoChoosePokemon } from'../../../actions/actions';
 
 import './pokemon.css';
 
@@ -9,21 +9,27 @@ class Pokemon extends Component {
 
   //Choose pokemon
   handleClick = (e) => {
-    const { battle, dispatch } = this.props;
+    const { playerOne, dispatch } = this.props;
 
     console.log(e.target.dataset.id);
     let pokemonChosen = e.target.dataset.id;
-    let firstPlayerPokemon = battle[0].fighterA.pokemon;
+    debugger;
+    let firstPlayerPokemon = playerOne.fighterA.pokemon;
 
     //check whether it is player 1 or player 2's turn
     if (pokemonChosen !== undefined){
       //if player 1, render ChoiceList and populate player 1
       if (firstPlayerPokemon === '') {
-        dispatch(choosePokemon(pokemonChosen));
+        dispatch(playerOneChoosePokemon(pokemonChosen));
       } else {
       //if player 2, populate player 2
+        dispatch(playerTwoChoosePokemon(pokemonChosen));
       }
     }
+  }
+
+  renderPokemonChoice = () => {
+
   }
 
   render(){

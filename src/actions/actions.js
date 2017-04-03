@@ -46,34 +46,69 @@ export function setSearchPokemon(searchPokemon){
 /*
  * Player pokemon selection
  */
-export function choosePokemon(id){
+export function playerOneChoosePokemon(id){
   return (dispatch) => {
-    dispatch(fetchingPokemon(true));
+    dispatch(setPlayerOnePokemonLoading(true));
     //pokeApi returns list of pokemon objects
     fetch('http://localhost:8000/api/v2/pokemon/' + id, {mode: 'cors'})
       .then(response => response.json())
       .then(pokemon => {
-        dispatch(choosePokemonLoading(false));
+        dispatch(setPlayerOnePokemonLoading(false));
         return pokemon;
       })
       .then(pokemon => {
-        dispatch(setChoosePokemon(pokemon));
+        dispatch(setPlayerOnePokemon(pokemon));
       }).catch(error => {
         throw(error);
       });
   };
 }
 
-export function choosePokemonLoading(bool){
+export function setPlayerOnePokemonLoading(bool){
   return {
-    type: 'CHOOSE_POKEMON_LOADING',
+    type: 'PLAYER_ONE_POKEMON_LOADING',
     isLoading: bool
   }
 }
 
-export function setChoosePokemon(pokemon){
+export function setPlayerOnePokemon(pokemon){
   return {
-    type: 'SET_CHOOSE_POKEMON',
+    type: 'SET_PLAYER_ONE_POKEMON',
+    pokemon
+  }
+}
+
+/*
+ * Player pokemon selection
+ */
+export function playerTwoChoosePokemon(id){
+  return (dispatch) => {
+    dispatch(setPlayerTwoPokemonLoading(true));
+    //pokeApi returns list of pokemon objects
+    fetch('http://localhost:8000/api/v2/pokemon/' + id, {mode: 'cors'})
+      .then(response => response.json())
+      .then(pokemon => {
+        dispatch(setPlayerTwoPokemonLoading(false));
+        return pokemon;
+      })
+      .then(pokemon => {
+        dispatch(setPlayerTwoPokemon(pokemon));
+      }).catch(error => {
+        throw(error);
+      });
+  };
+}
+
+export function setPlayerTwoPokemonLoading(bool){
+  return {
+    type: 'PLAYER_TWO_POKEMON_LOADING',
+    isLoading: bool
+  }
+}
+
+export function setPlayerTwoPokemon(pokemon){
+  return {
+    type: 'SET_PLAYER_TWO_POKEMON',
     pokemon
   }
 }

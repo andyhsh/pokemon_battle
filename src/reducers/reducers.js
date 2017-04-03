@@ -1,8 +1,8 @@
 const initialState = {
                           pokemonList: {pokemon: [], loading: true, filter: ''},
                           battle: [
-                            {fighterA: {userId: '', pokemon: '', stats: []} },
-                            {fighterB: {userId: '', pokemon: '', stats: []} },
+                            {fighterA: {userId: '', pokemon: '', stats: []}, loading: undefined },
+                            {fighterB: {userId: '', pokemon: '', stats: []}, loading: undefined },
                             {result: {winner: '', loser: ''} }
                           ]
                         };
@@ -35,15 +35,34 @@ export const pokemonReducer = (state = initialState.pokemonList, action) => {
 /*
  * Manage battle state
  */
-export const battleReducer = (state = initialState.battle, action) => {
+export const playerOneBattleReducer = (state = initialState.battle[0], action) => {
   switch (action.type) {
-    case 'LOADING_CHOOSE_POKEMON':
+    case 'PLAYER_ONE_POKEMON_LOADING':
     return {
-
+      ...state,
+      fighterA: {...state, loading: action.isLoading}
     }
-    case 'SET_CHOOSE_POKEMON':
+    case 'SET_PLAYER_ONE_POKEMON':
     return {
+      ...state,
+      fighterA: {...state, pokemon: action.pokemon}
+    }
+  default:
+    return state;
+  }
+}
 
+export const playerTwoBattleReducer = (state = initialState.battle[1], action) => {
+  switch (action.type) {
+    case 'PLAYER_TWO_POKEMON_LOADING':
+    return {
+      ...state,
+      fighterB: {...state, loading: action.isLoading}
+    }
+    case 'SET_PLAYER_TWO_POKEMON':
+    return {
+      ...state,
+      fighterB: {...state, pokemon: action.pokemon}
     }
   default:
     return state;
