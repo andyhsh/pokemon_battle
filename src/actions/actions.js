@@ -5,13 +5,14 @@ export function fetchPokemon(){
     dispatch(fetchingPokemon(true));
     console.log('pokeapi', pokeApi);
     //pokeApi returns list of pokemon objects
-    pokeApi()
+    fetch('http://localhost:8000/api/v2/pokemon/?limit=151', {mode: 'cors'})
+      .then(response => response.json())
       .then(pokemon => {
         dispatch(fetchingPokemon(false));
         return pokemon;
       })
       .then(pokemon => {
-        dispatch(fetchPokemonSuccess(pokemon));
+        dispatch(fetchPokemonSuccess(pokemon.results));
       }).catch(error => {
         throw(error);
       });

@@ -14,28 +14,29 @@ class PokeList extends Component {
     dispatch(fetchPokemon());
   }
 
-  renderPokemon() {
-    // const {loading, fetchedPokemon} = this.props;
-    //
-    // /* Example objects inside fetchedPokemon array state{
-    // url: "https://pokeapi.co/api/v2/pokemon/1/",
-    // name: "bulbasaur"
-    // }, */
-    //
-    // //if its finished loading and finished fetching pokemon from pokeAPI, begin rendering pokemon
-    // if(!loading && fetchPokemon){
-    //   return fetchedPokemon.map((pokemon, index) => {
-    //     return <Pokemon key={pokemon.name} id={index+1} name={pokemon.name} />
-    //   })
-    // } else {
-    //   //loading icon placeholder
-    // }
+  renderPokemon = () => {
+    const {pokemonList} = this.props;
+    console.log('states', pokemonList);
+    /* Example objects inside fetchedPokemon array state{
+    url: "https://pokeapi.co/api/v2/pokemon/1/",
+    name: "bulbasaur"
+    }, */
+
+    //if its finished loading and finished fetching pokemon from pokeAPI, begin rendering pokemon
+    if(!pokemonList.loading && pokemonList.pokemon){
+      return pokemonList.pokemon.map((pokemon, index) => {
+        return <Pokemon key={pokemon.name} id={index+1} name={pokemon.name} />
+      })
+     }  else if (pokemonList.loading){
+       //loading icon placeholder
+          return <h2>Loading...</h2>
+    }
   }
 
   render(){
     return (
       <div className='row' id='pokemon-list-container'>
-        {this.renderPokemon}
+        {this.renderPokemon()}
       </div>
     )
   }
