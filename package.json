@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "fetch-jsonp": "^1.0.6",
+    "firebaseui": "^1.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",

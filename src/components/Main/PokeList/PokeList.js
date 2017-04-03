@@ -21,7 +21,6 @@ class PokeList extends Component {
 
   renderPokemon = () => {
     const {pokemonList} = this.props;
-    console.log('states', pokemonList);
     /* Example objects inside fetchedPokemon array state{
     url: "https://pokeapi.co/api/v2/pokemon/1/",
     name: "bulbasaur"
@@ -29,8 +28,8 @@ class PokeList extends Component {
 
     //if its finished loading and finished fetching pokemon from pokeAPI, begin rendering pokemon
     if(!pokemonList.loading && pokemonList.pokemon){
-
       return filterPokemon(pokemonList.pokemon, pokemonList.filter).map((pokemon, index) => {
+        //assign id to pokemon through grabbing the last group of the url
         return <Pokemon key={pokemon.name} id={pokemon.url.match(/([^\/]*)\/*$/)[1]} name={pokemon.name} />
       })
      }  else if (pokemonList.loading){

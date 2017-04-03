@@ -1,9 +1,11 @@
 import { pokeApi } from '../api/api';
 
+/*
+ * fetch pokemon from pokeAPI
+ */
 export function fetchPokemon(){
   return (dispatch) => {
     dispatch(fetchingPokemon(true));
-    console.log('pokeapi', pokeApi);
     //pokeApi returns list of pokemon objects
     fetch('http://localhost:8000/api/v2/pokemon/?limit=151', {mode: 'cors'})
       .then(response => response.json())
@@ -39,3 +41,39 @@ export function setSearchPokemon(searchPokemon){
     searchPokemon
   };
 };
+
+
+/*
+ * Player pokemon selection
+ */
+export function choosePokemon(id){
+  return (dispatch) => {
+    dispatch(fetchingPokemon(true));
+    //pokeApi returns list of pokemon objects
+    fetch('http://localhost:8000/api/v2/pokemon/' + id, {mode: 'cors'})
+      .then(response => response.json())
+      .then(pokemon => {
+        dispatch(choosePokemonLoading(false));
+        return pokemon;
+      })
+      .then(pokemon => {
+        dispatch(setChoosePokemon(pokemon));
+      }).catch(error => {
+        throw(error);
+      });
+  };
+}
+
+export function choosePokemonLoading(bool){
+  return {
+    type: 'CHOOSE_POKEMON_LOADING',
+    isLoading: bool
+  }
+}
+
+export function setChoosePokemon(pokemon){
+  return {
+    type: 'SET_CHOOSE_POKEMON',
+    pokemon
+  }
+}
