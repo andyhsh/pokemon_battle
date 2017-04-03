@@ -7,7 +7,7 @@ class Result  extends Component {
 
     return(
         <div className='col-md-4'>
-            <img src="http://placehold.it/350x500"/>
+            <img src="http://placehold.it/350x500" alt='placeholder4'/>
         </div>
     )
   }

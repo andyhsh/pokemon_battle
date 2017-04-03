@@ -7,7 +7,7 @@ class Portrait extends Component {
 
     return(
         <div className='col-md-4'>
-            <img src="http://placehold.it/350x150"/>
+            <img src="http://placehold.it/350x150" alt='placeholder1'/>
         </div>
     )
   }

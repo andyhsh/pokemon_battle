@@ -7,7 +7,7 @@ class Health extends Component {
 
     return(
         <div className='col-md-4'>
-            <img src="http://placehold.it/350x50"/>
+            <img src="http://placehold.it/350x50" alt='placeholder2'/>
         </div>
     )
   }

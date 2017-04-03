@@ -5,6 +5,8 @@ import Navbar from './Navbar/Navbar';
 import Search from './Search/Search';
 import Footer from './Footer/Footer';
 
+import './main.css';
+
 import Portrait from '../Battle/Portrait/Portrait';
 import Health from '../Battle/Health/Health';
 import Stats from '../Battle/Stats/Stats';
@@ -27,7 +29,7 @@ class Main extends Component {
           <div className='row'>
             <Portrait/>
             <div className='col-md-4'>
-                <img src={Versus} />
+                <img id='versus-logo' src={Versus} alt='versus'/>
             </div>
             <Portrait/>
           </div>

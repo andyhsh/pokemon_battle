@@ -6,6 +6,8 @@ import Stats from './Stats/Stats';
 import Result from './Result/Result';
 import Versus from '../../../public/images/versus-vs.png';
 
+import'./battlepage.css';
+
 class App extends Component {
   render() {
     return (
