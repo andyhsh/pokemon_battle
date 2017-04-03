@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Pokemon from '../Pokemon/Pokemon';
+import Loading from '../Loading/Loading';
 import { fetchPokemon } from '../../../actions/actions';
+import css from './pokelist.css';
 
 class PokeList extends Component {
 
@@ -29,7 +31,7 @@ class PokeList extends Component {
       })
      }  else if (pokemonList.loading){
        //loading icon placeholder
-          return <h2>Loading...</h2>
+          return <Loading />
     }
   }
 

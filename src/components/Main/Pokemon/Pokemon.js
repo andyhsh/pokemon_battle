@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
+import css from './pokemon.css';
+
 //individual Pokemon
 class Pokemon extends Component {
 
@@ -14,15 +16,18 @@ class Pokemon extends Component {
   }
 
   render(){
-    const {id, name} = this.props;
+    let {id, name} = this.props;
+    name = name.charAt(0).toUpperCase() + name.slice(1);
 
     return (
-      <div className='col-md-3 col-s-4 col-xs-6 pokemon-list-container'>
-        <div className='pokemon-list-sprite'>
-          <img alt={name} src={require(`../../../../public/sprites/${id}.png`)} onClick={this.handleClick} />
-        </div>
-        <div className='pokemon-list-name'>
-          {name}
+      <div className='col-md-3 col-xs-6'>
+        <div className='pokemon-container'>
+          <div className='pokemon-sprite'>
+            <img alt={name} src={require(`../../../../public/sprites/${id}.png`)} width={120} height={120} onClick={this.handleClick} />
+          </div>
+          <div className='pokemon-name'>
+            {name}
+          </div>
         </div>
       </div>
     )
