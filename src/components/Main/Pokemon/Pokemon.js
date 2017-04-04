@@ -13,7 +13,7 @@ class Pokemon extends Component {
       <div className='col-md-3 col-xs-6'>
         <div className='pokemon-container' onClick={handleClick}>
           <div className='pokemon-sprite'>
-            <img alt={name} data-id={id} src={require(`../../../../public/sprites/${id}.png`)} width={120} height={120} />
+            <img alt={name} data-id={id} src={require(`../../../../public/sprites_v2/${id}.png`)} width={120} height={120} />
           </div>
           <div className='pokemon-name'>
             {name}

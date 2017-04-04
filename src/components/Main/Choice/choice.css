@@ -2,6 +2,11 @@
   margin-bottom: 50px;
 }
 
+.choice-pokemon {
+  text-align: center;
+  font-size: 25px;
+}
+
 .choice-pokemon-portrait img {
   display: block;
   margin: 0 auto;
@@ -9,12 +14,12 @@
 
 .choice-pokemon-stats ul {
   list-style-type: none;
-  text-align: center;
 }
 
 .choice-pokemon-type ul {
   list-style-type: none;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .choice-pokemon-type ul li {
@@ -23,6 +28,26 @@
   padding: 5px 10px;
   margin: 0px 3px;
   border-radius: 3px;
+}
+
+.stat-bar {
+  height: 20px;
+  position: relative;
+  background: rgb(233, 233, 233);
+  margin-bottom: 4px;
+}
+
+.stat-bar > span {
+  display: block;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  padding-left: 10px;
+}
+
+.stat-name {
+  padding-right: 0px;
 }
 
 .normal {
