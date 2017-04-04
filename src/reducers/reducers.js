@@ -1,8 +1,8 @@
 const initialState = {
                           pokemonList: {pokemon: [], loading: true, filter: ''},
                           battle: [
-                            {fighterA: {userId: '', pokemon: '', stats: []}, loading: undefined },
-                            {fighterB: {userId: '', pokemon: '', stats: []}, loading: undefined },
+                            {fighterA: {userId: '', pokemon: '', pokemonId: '', stats: [], type: []}, loading: undefined },
+                            {fighterB: {userId: '', pokemon: '', pokemonId: '', stats: [], type: []}, loading: undefined },
                             {result: {winner: '', loser: ''} }
                           ]
                         };
@@ -35,34 +35,40 @@ export const pokemonReducer = (state = initialState.pokemonList, action) => {
 /*
  * Manage battle state
  */
-export const playerOneBattleReducer = (state = initialState.battle[0], action) => {
+export const playerOneBattleReducer = (state = initialState.battle[0].fighterA, action) => {
   switch (action.type) {
     case 'PLAYER_ONE_POKEMON_LOADING':
     return {
       ...state,
-      fighterA: {...state, loading: action.isLoading}
+      loading: action.isLoading
     }
     case 'SET_PLAYER_ONE_POKEMON':
     return {
       ...state,
-      fighterA: {...state, pokemon: action.pokemon}
+      pokemon: action.pokemon.name,
+      pokemonId: action.pokemon.forms[0].url.match(/([^\/]*)\/*$/)[1],
+      stats: action.pokemon.stats,
+      type: action.pokemon.types
     }
   default:
     return state;
   }
 }
 
-export const playerTwoBattleReducer = (state = initialState.battle[1], action) => {
+export const playerTwoBattleReducer = (state = initialState.battle[1].fighterB, action) => {
   switch (action.type) {
     case 'PLAYER_TWO_POKEMON_LOADING':
     return {
       ...state,
-      fighterB: {...state, loading: action.isLoading}
+      loading: action.isLoading
     }
     case 'SET_PLAYER_TWO_POKEMON':
     return {
       ...state,
-      fighterB: {...state, pokemon: action.pokemon}
+      pokemon: action.pokemon.name,
+      pokemonId: action.pokemon.forms[0].url.match(/([^\/]*)\/*$/)[1],
+      stats: action.pokemon.stats,
+      type: action.pokemon.types
     }
   default:
     return state;

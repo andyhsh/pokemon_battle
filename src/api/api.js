@@ -20,6 +20,4 @@ module.exports = {
 
     return filteredPokemon;
   }
-
-
 }

@@ -7,7 +7,7 @@ export function fetchPokemon(){
   return (dispatch) => {
     dispatch(fetchingPokemon(true));
     //pokeApi returns list of pokemon objects
-    fetch('http://localhost:8000/api/v2/pokemon/?limit=151', {mode: 'cors'})
+    fetch('http://localhost:8000/api/v2/pokemon/?limit=151')
       .then(response => response.json())
       .then(pokemon => {
         dispatch(fetchingPokemon(false));
@@ -44,13 +44,13 @@ export function setSearchPokemon(searchPokemon){
 
 
 /*
- * Player pokemon selection
+ * Player One pokemon selection
  */
 export function playerOneChoosePokemon(id){
   return (dispatch) => {
     dispatch(setPlayerOnePokemonLoading(true));
     //pokeApi returns list of pokemon objects
-    fetch('http://localhost:8000/api/v2/pokemon/' + id, {mode: 'cors'})
+    fetch('http://localhost:8000/api/v2/pokemon/' + id)
       .then(response => response.json())
       .then(pokemon => {
         dispatch(setPlayerOnePokemonLoading(false));
@@ -79,13 +79,13 @@ export function setPlayerOnePokemon(pokemon){
 }
 
 /*
- * Player pokemon selection
+ * Player Two pokemon selection
  */
 export function playerTwoChoosePokemon(id){
   return (dispatch) => {
     dispatch(setPlayerTwoPokemonLoading(true));
     //pokeApi returns list of pokemon objects
-    fetch('http://localhost:8000/api/v2/pokemon/' + id, {mode: 'cors'})
+    fetch('http://localhost:8000/api/v2/pokemon/' + id)
       .then(response => response.json())
       .then(pokemon => {
         dispatch(setPlayerTwoPokemonLoading(false));
