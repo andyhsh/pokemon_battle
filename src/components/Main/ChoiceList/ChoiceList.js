@@ -2,37 +2,33 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Choice from '../Choice/Choice';
+import Loading from '../Loading/Loading';
 
 class ChoiceList  extends Component {
 
-  renderChoiceList = () => {
-    const { playerOne, playerTwo } = this.props;
-    let playerOneChoice, playerTwoChoice = undefined;
-
-    if (playerOne.pokemon !== ''){
-      playerOneChoice = <Choice pokemonId={playerOne.pokemonId} stats={playerOne.stats} />;
+  playerOneChoice = () => {
+    if (this.props.playerOne.pokemon !== ''){
+      return <Choice pokemon={this.props.playerOne.pokemon} pokemonId={this.props.playerOne.pokemonId} stats={this.props.playerOne.stats} type={this.props.playerOne.type} />;
+    } else if (this.props.playerOne.loading){
+      return <Loading />
     }
+  }
 
-    if (playerTwo.pokemon !== ''){
-      playerTwoChoice = <Choice pokemonId={playerTwo.pokemonId} stats={playerTwo.stats} />;
-    }
-
-    if (playerOne.pokemon !== '') {
-      return (
-      <div id='choice-list-container' className='col-xs-12'>
-        {playerOneChoice}
-        {playerTwoChoice}
-      </div>
-      )
+  playerTwoChoice = () => {
+    if (this.props.playerTwo.pokemon !== ''){
+      return <Choice pokemon={this.props.playerTwo.pokemon} pokemonId={this.props.playerTwo.pokemonId} stats={this.props.playerTwo.stats} type={this.props.playerTwo.type} />;
+    } else if (this.props.playerTwo.loading){
+      return <Loading />
     }
   }
 
   render() {
-    const { playerOne, playerTwo, dispatch } = this.props;
-
     return(
       <div className='row'>
-        {this.renderChoiceList()}
+        <div id='choice-list-container' className='col-xs-12'>
+          {this.playerOneChoice()}
+          {this.playerTwoChoice()}
+        </div>
       </div>
     )
   }
