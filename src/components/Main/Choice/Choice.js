@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+
+import { capitalize } from '../../../api/api';
 
 import './choice.css';
 
@@ -26,8 +27,8 @@ class Choice  extends Component {
     return stats.map(stat => {
       //normalise statBar length to 100% scale, capping the stats to 100% length
       let statBar = stat.base_stat/150*100;
-      statBar >= 100 ? statBar = 100 + '%' : statBar = statBar + '%';
-      let statBarStyle = {width: statBar};
+      statBar >= 100 ? statBar = 100 + '%' : statBar += '%';
+      const statBarStyle = {width: statBar};
 
       return (
         <div className='row' key={stat.stat.name}>
@@ -46,7 +47,7 @@ class Choice  extends Component {
 
   render() {
     let { pokemonId, pokemon } = this.props;
-    pokemon = pokemon.charAt(0).toUpperCase() + pokemon.slice(1);
+    pokemon = capitalize(pokemon);
 
     return(
       <div className='col-xs-12 col-md-6'>
@@ -71,4 +72,4 @@ class Choice  extends Component {
   }
 }
 
-export default connect()(Choice);
+export default Choice;

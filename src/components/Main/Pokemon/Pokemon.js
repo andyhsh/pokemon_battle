@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import { capitalize } from '../../../api/api';
+
 import './pokemon.css';
 
 //individual Pokemon => dumb component
@@ -7,7 +9,7 @@ class Pokemon extends Component {
 
   render(){
     let {id, name, handleClick} = this.props;
-    name = name.charAt(0).toUpperCase() + name.slice(1);
+    name = capitalize(name);
 
     return (
       <div className='col-md-3 col-xs-6'>

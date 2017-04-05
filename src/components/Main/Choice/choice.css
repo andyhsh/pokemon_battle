@@ -1,3 +1,4 @@
+/* choice component styling */
 .choice-list {
   margin-bottom: 50px;
 }
@@ -30,6 +31,7 @@
   border-radius: 3px;
 }
 
+/* stat bar styling */
 .stat-bar {
   height: 20px;
   position: relative;
@@ -48,6 +50,22 @@
 
 .stat-name {
   padding-right: 0px;
+}
+
+/* Battle bar styling */
+#battle-bar {
+  height: 30px;
+  position: relative;
+  background: rgb(233, 233, 233);
+  margin-bottom: 4px;
+}
+
+#Battle-bar > span {
+  display: block;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  color: white;
 }
 
 .normal {

@@ -4,7 +4,7 @@ const initialState = {
                             {fighterA: {userId: '', pokemon: '', pokemonId: '', stats: [], type: []}, loading: undefined },
                             {fighterB: {userId: '', pokemon: '', pokemonId: '', stats: [], type: []}, loading: undefined },
                             {battle: {winner: {userId: '', pokemon: ''}, loser: {userId: '', pokemon: ''} } },
-                            {battleBar: {fighterA: 50, fighterB: 50} }
+                            {battleBar: {fighterA: 50, fighterB: 50, inProgress: false } }
                           ]
                         };
 
@@ -81,6 +81,11 @@ export const playerTwoBattleReducer = (state = initialState.battle[1].fighterB, 
  */
 export const battleReducer = ( state = initialState.battle[3].battleBar, action) => {
   switch (action.type) {
+    case 'START_BATTLE':
+      return {
+        ...state,
+        inProgress: action.start
+      }
     case 'UPDATE_RESULTS':
       return {
         //to update state winner and loser of battle

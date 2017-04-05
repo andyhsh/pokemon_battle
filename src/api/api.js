@@ -9,6 +9,7 @@ module.exports = {
       })
   },
 
+  //search bar filter
   filterPokemon: function(pokemonList, searchText) {
     let filteredPokemon = pokemonList;
 
@@ -19,5 +20,11 @@ module.exports = {
     });
 
     return filteredPokemon;
+  },
+
+  //Capitalize first letter of a word name
+  capitalize: function(name){
+    return name.charAt(0).toUpperCase() + name.slice(1);
   }
+
 }
