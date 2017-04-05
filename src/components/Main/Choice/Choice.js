@@ -26,6 +26,7 @@ class Choice  extends Component {
 
     return stats.map(stat => {
       //normalise statBar length to 100% scale, capping the stats to 100% length
+
       let statBar = stat.base_stat/150*100;
       statBar >= 100 ? statBar = 100 + '%' : statBar += '%';
       const statBarStyle = {width: statBar};

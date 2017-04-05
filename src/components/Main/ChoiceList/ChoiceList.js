@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Choice from '../Choice/Choice';
 import Loading from '../Loading/Loading';
 import BattleButton from '../ChoiceList/BattleButton';
+import ReplayButton from '../ChoiceList/ReplayButton';
 import BattleBar from '../ChoiceList/BattleBar';
 
 import { startBattle } from '../../../actions/actions';
@@ -32,7 +33,7 @@ class ChoiceList  extends Component {
 
   //render battleButton when both players have chosen their pokemon
   renderBattleButton = () => {
-    if (this.props.playerOne.pokemon !== '' && this.props.playerTwo.pokemon !== '' && this.props.battleBar.inProgress !== true) {
+    if (this.props.playerOne.pokemon !== '' && this.props.playerTwo.pokemon !== '' && this.props.battleBar.inProgress !== true && this.props.results.winner.pokemon === '') {
       return <BattleButton handleBattleClick={this.handleBattleClick} />
     }
   }
@@ -46,10 +47,29 @@ class ChoiceList  extends Component {
     }
   }
 
-  //event listener click for battleButton
+  //event listener click for battleButton to startBattle
   handleBattleClick = () => {
     const { dispatch } = this.props;
     dispatch(startBattle(true));
+  }
+
+  //render winner pokemon message
+  renderWinner = () => {
+    if (this.props.results.winner.pokemon !== ''){
+      return <h2 id='battle-winner'>{this.props.results.winner.toUpperCase()} WINS!</h2>;
+    }
+  }
+
+  //render replay button when results are known
+  renderReplayButton = () => {
+    if (this.props.results.winner.pokemon !== ''){
+      return <ReplayButton handleReplayClick={this.handleReplayClick} />
+    }
+  }
+
+  //replay game by resetting stats
+  handleReplayClick = () => {
+    console.log('click');
   }
 
   render() {
@@ -61,6 +81,8 @@ class ChoiceList  extends Component {
         </div>
         <div id='battle-container' className='col-xs-12'>
           {this.renderBattleButton()}
+          {this.renderWinner()}
+          {this.renderReplayButton()}
           {this.renderBattleBar()}
         </div>
       </div>

@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+
+import { updateResults, startBattle } from '../../../actions/actions';
+
 
 import '../Choice/choice.css';
 
@@ -7,7 +11,6 @@ class BattleBar extends Component {
     super(props);
     this.state = {
       pokemonHealth: 50,
-      winner: false,
     };
   }
 
@@ -19,37 +22,38 @@ class BattleBar extends Component {
     const battleBarStyle = {width: battleBar};
     const playerOneType = this.props.playerOne.type[0].type.name;
 
+    //set game speed
     setTimeout( function() {
     renderBattle();
-  }, 5)
+    }, 5)
 
     return <span style={battleBarStyle} className={playerOneType}></span>
-
   }
 
+  //Logic for deciding when the battle ends, either pokemon health is 0 (playerTwo wins) or pokemon health is 100 (playerOne wins)
   renderBattle = () => {
     const pokemonHealth = this.state.pokemonHealth;
-    const winner = this.state.winner;
     const battleCalc = this.battleCalculation;
-    //setTimeout( function() {
-      //while (winner === false) {
-        if(pokemonHealth > 0 || pokemonHealth < 100) {
-          battleCalc();
-        }
-        else if (pokemonHealth === 0) {
-          this.setState({winner: 'playerTwo'})
-        }
-        else if (pokemonHealth === 100) {
-          this.setState({winner: 'playerOne'})
-        }
-      //}
-    //}, 1000)
+    const {dispatch, playerOne, playerTwo } = this.props;
+
+    if (pokemonHealth === 0) {
+      dispatch(updateResults(playerTwo.pokemon, playerOne.pokemon));
+      dispatch(startBattle(false));
+
+    } else if (pokemonHealth === 100) {
+      dispatch(updateResults(playerOne.pokemon, playerTwo.pokemon));
+      dispatch(startBattle(false));
+
+    }
+    else {
+      battleCalc();
+    }
   }
 
 
   battleCalculation = () => {
     const pokemonHealth = this.state.pokemonHealth;
-    return Math.floor(Math.random() * 5) === 0 ? this.setState({pokemonHealth: pokemonHealth + 1}) : this.setState({pokemonHealth: pokemonHealth - 1});
+    return Math.floor(Math.random() * 1.8) === 0 ? this.setState({pokemonHealth: pokemonHealth + 1}) : this.setState({pokemonHealth: pokemonHealth - 1});
   }
 
   render(){
@@ -60,4 +64,7 @@ class BattleBar extends Component {
   }
 }
 
-export default BattleBar;
+export default connect(
+  (state) => {
+  return state;
+})(BattleBar);

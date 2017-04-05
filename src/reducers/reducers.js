@@ -86,23 +86,20 @@ export const battleReducer = ( state = initialState.battle[3].battleBar, action)
         ...state,
         inProgress: action.start
       }
-    case 'UPDATE_RESULTS':
-      return {
-        //to update state winner and loser of battle
-       }
-    case 'PLAYER_ONE_HIT':
-      return {
-        ...state,
-        fighterA: state.fighterA + 1,
-        fighterB: state.fighterB - 1
-      }
-    case 'PLAYER_TWO_HIT':
-      return {
-        ...state,
-        fighterA: state.fighterA - 1,
-        fighterB: state.fighterB + 1
-      }
     default:
        return state;
+  }
+}
+
+export const resultsReducer = ( state = initialState.battle[2].battle, action) => {
+  switch (action.type) {
+    case 'UPDATE_RESULTS':
+      return {
+        ...state,
+        winner: action.winner,
+        loser: action.loser
+      }
+    default:
+      return state;
   }
 }

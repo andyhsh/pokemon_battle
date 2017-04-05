@@ -2,7 +2,7 @@ import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk'; //handles async calls in redux
 
 //import all the reducers from reducers.jsx
-import { pokemonReducer, playerOneBattleReducer, playerTwoBattleReducer, battleReducer } from '../reducers/reducers'
+import { pokemonReducer, playerOneBattleReducer, playerTwoBattleReducer, battleReducer, resultsReducer } from '../reducers/reducers'
 
 export const initStore = () => {
 
@@ -11,8 +11,8 @@ export const initStore = () => {
     pokemonList : pokemonReducer,
     playerOne: playerOneBattleReducer,
     playerTwo: playerTwoBattleReducer,
-    battleBar: battleReducer
-    // todos: todoReducer,
+    battleBar: battleReducer,
+    results: resultsReducer
     // name: nameReducer
   });
 
