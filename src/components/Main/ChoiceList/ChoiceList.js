@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Choice from '../Choice/Choice';
 import Loading from '../Loading/Loading';
+import BattleButton from '../ChoiceList/BattleButton';
 
 class ChoiceList  extends Component {
 
@@ -22,12 +23,25 @@ class ChoiceList  extends Component {
     }
   }
 
+  renderBattleButton = () => {
+    if (this.props.playerOne.pokemon !== '' && this.props.playerTwo.pokemon !== '') {
+      return (
+        <BattleButton handleBattleClick={this.handleBattleClick} />
+      )
+    }
+  }
+
+  handleBattleClick = () => {
+    console.log('click');
+  }
+
   render() {
     return(
       <div className='row'>
         <div id='choice-list-container' className='col-xs-12'>
           {this.playerOneChoice()}
           {this.playerTwoChoice()}
+          {this.renderBattleButton()}
         </div>
       </div>
     )

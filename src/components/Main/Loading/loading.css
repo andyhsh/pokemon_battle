@@ -4,6 +4,7 @@
     -webkit-animation: spin2 1s infinite linear;
     margin: 1em;
     font-size: 100px;
+    text-align: center;
 }
 
 @keyframes spin {

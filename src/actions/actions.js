@@ -112,3 +112,25 @@ export function setPlayerTwoPokemon(pokemon){
     pokemon
   }
 }
+
+/*
+ * Battle actions
+ */
+
+export function battling(/*playerOneStats,playerTwoStats*/){
+  return (dispatch) => {
+    Math.floor(Math.random() * 2) == 0 ? dispatch(playerOneHit()) : dispatch(playerTwoHit());
+  }
+}
+
+export function playerOneHit(){
+  return {
+    type: 'PLAYER_ONE_HIT',
+  }
+}
+
+export function playerTwoHit(){
+  return {
+    type: 'PLAYER_TWO_HIT',
+  }
+}
