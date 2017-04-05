@@ -51,6 +51,8 @@ export const playerOneBattleReducer = (state = initialState.battle[0].fighterA, 
         stats: action.pokemon.stats,
         type: action.pokemon.types
       }
+    case 'RESET_STATES':
+      return initialState.battle[0].fighterA
   default:
     return state;
   }
@@ -71,6 +73,8 @@ export const playerTwoBattleReducer = (state = initialState.battle[1].fighterB, 
         stats: action.pokemon.stats,
         type: action.pokemon.types
       }
+    case 'RESET_STATES':
+      return initialState.battle[1].fighterB
   default:
     return state;
   }
@@ -86,6 +90,8 @@ export const battleReducer = ( state = initialState.battle[3].battleBar, action)
         ...state,
         inProgress: action.start
       }
+    case 'RESET_STATES':
+      return initialState.battle[3].battleBar
     default:
        return state;
   }
@@ -99,6 +105,8 @@ export const resultsReducer = ( state = initialState.battle[2].battle, action) =
         winner: action.winner,
         loser: action.loser
       }
+    case 'RESET_STATES':
+      return initialState.battle[2].battle
     default:
       return state;
   }

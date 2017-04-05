@@ -131,3 +131,12 @@ export function updateResults(winner, loser){
     loser
   }
 }
+
+/*
+ * Reset state
+ */
+ export function resetStates(){
+   return {
+     type: 'RESET_STATES'
+   }
+ }

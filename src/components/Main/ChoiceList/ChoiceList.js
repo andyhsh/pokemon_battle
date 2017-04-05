@@ -7,7 +7,7 @@ import BattleButton from '../ChoiceList/BattleButton';
 import ReplayButton from '../ChoiceList/ReplayButton';
 import BattleBar from '../ChoiceList/BattleBar';
 
-import { startBattle } from '../../../actions/actions';
+import { startBattle, resetStates } from '../../../actions/actions';
 
 import './choicelist.css';
 
@@ -69,7 +69,8 @@ class ChoiceList  extends Component {
 
   //replay game by resetting stats
   handleReplayClick = () => {
-    console.log('click');
+    const { dispatch } = this.props;
+    dispatch(resetStates());
   }
 
   render() {

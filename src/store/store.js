@@ -13,7 +13,6 @@ export const initStore = () => {
     playerTwo: playerTwoBattleReducer,
     battleBar: battleReducer,
     results: resultsReducer
-    // name: nameReducer
   });
 
   const store = createStore(rootReducer, compose(
