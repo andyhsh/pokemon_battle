@@ -8,7 +8,7 @@ import Versus from '../../../public/images/versus-vs.png';
 
 import'./battlepage.css';
 
-class App extends Component {
+class Battlepage extends Component {
   render() {
     return (
         <div className='container'>

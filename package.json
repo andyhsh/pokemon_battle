@@ -2,6 +2,7 @@
   "name": "pokemon-battle",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8000",
   "dependencies": {
     "fetch-jsonp": "^1.0.6",
     "firebase": "^3.7.4",
