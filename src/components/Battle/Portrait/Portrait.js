@@ -14,7 +14,7 @@ class Portrait extends Component {
             <img src="http://placehold.it/350x150" alt='placeholder1'/>
         </div>
         <div className='col-md-4'>
-            <img src={Versus} />
+            <img id='versus' src={Versus} alt='versus-logo'/>
         </div>
         <div className='col-md-4'>
             <img src="http://placehold.it/350x150" alt='placeholder1'/>

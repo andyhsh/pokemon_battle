@@ -41,12 +41,11 @@ class Navbar extends Component {
           <div className='navbar-header'>
             <a className='navbar-brand' href='#'>PokeGYM</a>
           </div>
-          <div className='col-md-2'>
-            <button type='submit'
-                    className='btn btn-default'
-                    onClick={this.handleClick}>Log In</button>
-          </div>
           <div className='nav'>
+            <ul className='nav navbar-nav navbar-left'>
+              <li><a href='#'
+                     onClick={this.handleClick}>Log In</a></li>
+            </ul>
             <ul className='nav navbar-nav navbar-right'>
               <li><a href='#'>History</a></li>
               <li><a href='#'>About</a></li>
