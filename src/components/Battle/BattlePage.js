@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 
 import Portrait from './Portrait/Portrait';
 import Health from './Health/Health';
@@ -8,28 +9,20 @@ import Versus from '../../../public/images/versus-vs.png';
 
 import'./battlepage.css';
 
+import { initStore } from '../../store/store'
+const store = initStore();
+
 class Battlepage extends Component {
+
   render() {
     return (
+      <Provider store={store}>
         <div className='container'>
-            <div className='row'>
-                <Portrait/>
-                <div className='col-md-4'>
-                    <img src={Versus} />
-                </div>
-                <Portrait/>
-            </div>
-            <div className='row'>
-                <Health/>
-                <div className='col-md-4'></div>
-                <Health/>
-            </div>
-            <div className='row'>
-              <Stats/>
-              <Result/>
-              <Stats/>
-            </div>
+          <Portrait/>
+          <Health/>
+          <Stats/>
         </div>
+      </Provider>
     );
   }
 }

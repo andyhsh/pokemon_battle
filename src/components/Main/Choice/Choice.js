@@ -52,7 +52,7 @@ class Choice  extends Component {
       <div className='col-xs-12 col-md-6'>
         <div className='choice-list'>
           <div className='choice-pokemon'>
-            <p>{pokemon} #{pokemonId}</p>
+            <p>{pokemon}</p>
           </div>
           <div className='choice-pokemon-portrait'>
             <img alt={pokemon} src={require(`../../../../public/sprites_v2/${pokemonId}.png`)} width={200} height={200} />
