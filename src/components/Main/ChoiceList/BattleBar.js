@@ -1,30 +1,63 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
 
 import '../Choice/choice.css';
 
 class BattleBar extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      pokemonHealth: 50,
+      winner: false,
+    };
+  }
 
+  //visualise battle by looping engagement until one pokemon wins
   renderBattleBar = () => {
-    const type = this.props.type;
+    let battleBar = this.state.pokemonHealth + '%';
+    const renderBattle = this.renderBattle;
 
-    const battleBar = this.props.battleBar;
-    console.log(battleBar);
-    // let battleBar = stat.base_stat/150*100;
-    // battleBar >= 100 ? battleBar = 100 + '%' : battleBar += '%';
-    // const battleBarStyle = {width: battleBar};
+    const battleBarStyle = {width: battleBar};
+    const playerOneType = this.props.playerOne.type[0].type.name;
 
-    return <span style={battleBar} className={type}></span>
+    setTimeout( function() {
+    renderBattle();
+  }, 5)
+
+    return <span style={battleBarStyle} className={playerOneType}></span>
+
+  }
+
+  renderBattle = () => {
+    const pokemonHealth = this.state.pokemonHealth;
+    const winner = this.state.winner;
+    const battleCalc = this.battleCalculation;
+    //setTimeout( function() {
+      //while (winner === false) {
+        if(pokemonHealth > 0 || pokemonHealth < 100) {
+          battleCalc();
+        }
+        else if (pokemonHealth === 0) {
+          this.setState({winner: 'playerTwo'})
+        }
+        else if (pokemonHealth === 100) {
+          this.setState({winner: 'playerOne'})
+        }
+      //}
+    //}, 1000)
+  }
+
+
+  battleCalculation = () => {
+    const pokemonHealth = this.state.pokemonHealth;
+    return Math.floor(Math.random() * 5) === 0 ? this.setState({pokemonHealth: pokemonHealth + 1}) : this.setState({pokemonHealth: pokemonHealth - 1});
   }
 
   render(){
-    return (
-      <div id='battle-bar'>{this.renderBattleBar}</div>
-    )
+    //extract the main type of 2nd player's pokemon
+    const playerTwoType = this.props.playerTwo.type[0].type.name;
+
+    return <div id='battle-bar' className={playerTwoType}>{this.renderBattleBar()}</div>
   }
 }
 
-export default connect(
-  (state) => {
-    return state
-})(BattleBar);
+export default BattleBar;

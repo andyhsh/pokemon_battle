@@ -56,11 +56,10 @@
 #battle-bar {
   height: 30px;
   position: relative;
-  background: rgb(233, 233, 233);
   margin-bottom: 4px;
 }
 
-#Battle-bar > span {
+#battle-bar > span {
   display: block;
   height: 100%;
   position: relative;
