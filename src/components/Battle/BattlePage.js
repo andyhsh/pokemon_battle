@@ -5,7 +5,6 @@ import Portrait from './Portrait/Portrait';
 import Health from './Health/Health';
 import Stats from './Stats/Stats';
 import Result from './Result/Result';
-import Versus from '../../../public/images/versus-vs.png';
 
 import'./battlepage.css';
 
@@ -20,7 +19,11 @@ class Battlepage extends Component {
         <div className='container'>
           <Portrait/>
           <Health/>
-          <Stats/>
+          <div className='row'>
+            <Stats/>
+            <Result/>
+            <Stats/>
+          </div>
         </div>
       </Provider>
     );
