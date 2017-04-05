@@ -34,6 +34,14 @@ class Navbar extends Component {
     });
   };
 
+  handleLogOut = (e) => {
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
+  };
+
   render() {
     return (
       <header className='navbar navbar-default navbar-static-top'>
@@ -43,8 +51,8 @@ class Navbar extends Component {
           </div>
           <div className='nav'>
             <ul className='nav navbar-nav navbar-left'>
-              <li><a href='#'
-                     onClick={this.handleClick}>Log In</a></li>
+              <li><a href='#' onClick={this.handleClick}>Log In</a></li>
+              <li><a href='/' onClick={this.handleLogOut}>Log Out</a></li>
             </ul>
             <ul className='nav navbar-nav navbar-right'>
               <li><a href='#'>History</a></li>
