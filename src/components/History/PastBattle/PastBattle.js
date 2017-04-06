@@ -6,23 +6,15 @@ import './pastbattle.css'
 
 class PastBattle extends Component {
 
-/*    const database = firebase.database();
-    const databaseRef = database.ref().child('data');
-    databaseRef.on('value', snapshot => {
-        this.setState({
-        data: snapshot.val()
-    });
-});
-
-    constructor() {
-        super();
+/*    constructor(props) {
+        super(props);
         this.state = {
             speed: 10
         };
     }
 
     componentDidMount() {
-        const rootRef = firebase.database().ref.child('react');
+        const rootRef = firebase.database().ref().child('react');
         const speedRef = rootRef.child('speed');
         speedRef.on('value', snap => {
             this.setState({
@@ -30,8 +22,6 @@ class PastBattle extends Component {
             });
         });
     }
-
-    <div className='col-md-2'>{this.state.speed}</div>
 */
     render() {
         return(

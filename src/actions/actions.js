@@ -1,4 +1,5 @@
 import { pokeApi } from '../api/api';
+import * as firebase from 'firebase';
 
 /*
  * fetch pokemon from pokeAPI
@@ -131,6 +132,18 @@ export function updateResults(winner, loser){
     loser
   }
 }
+
+/*export function updateResultsDatabase(winner, loser){
+    return (dispatch) => {
+        firebase.database().ref().set({
+            winner: winner,
+            loser: loser
+        });
+        type: 'UPDATE_RESULTS',
+        winner,
+        loser
+    }
+}*/
 
 /*
  * Reset state
