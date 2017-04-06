@@ -1,5 +1,5 @@
 import { pokeApi } from '../api/api';
-import * as firebase from 'firebase';
+// import * as firebase from 'firebase';
 
 /*
  * fetch pokemon from pokeAPI
@@ -125,27 +125,27 @@ export function startBattle(bool){
   }
 }
 
-/*export function updateResults(winner, loser){
+export function updateResults(winner, loser){
   return {
     type: 'UPDATE_RESULTS',
     winner,
     loser
   }
-}*/
-
-export function updateResults(winner, loser){
-    return (dispatch) => {
-        firebase.database().ref().push({
-            winner: winner,
-            loser: loser
-        });
-        dispatch({
-          type: 'UPDATE_RESULTS',
-          winner,
-          loser
-      });
-    }
 }
+
+// export function updateResults(winner, loser){
+//     return (dispatch) => {
+//         firebase.database().ref().push({
+//             winner: winner,
+//             loser: loser
+//         });
+//         dispatch({
+//           type: 'UPDATE_RESULTS',
+//           winner,
+//           loser
+//       });
+//     }
+// }
 
 /*
  * Reset state

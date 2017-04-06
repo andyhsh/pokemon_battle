@@ -4,11 +4,12 @@ import Main from './components/Main/Main';
 import * as firebase from 'firebase';
 
 var config = {
-    apiKey: "AIzaSyAfIJVxL41JJkIX7Ui1vMFruzr-8a9DjsM",
-    authDomain: "project-3-31b3d.firebaseapp.com",
-    databaseURL: "https://project-3-31b3d.firebaseio.com",
-    storageBucket: "project-3-31b3d.appspot.com"
+  apiKey: "AIzaSyCCwV3k-R-ByI3uEcoQhxVumO8J-F2Rs3E",
+  authDomain: "pokemonbattle-2dbd2.firebaseapp.com",
+  databaseURL: "https://pokemonbattle-2dbd2.firebaseio.com",
+  storageBucket: "pokemonbattle-2dbd2.appspot.com"
 };
+
 firebase.initializeApp(config);
 //to import react-router-dom here
 

@@ -25,7 +25,7 @@ class BattleBar extends Component {
     //set game speed
     setTimeout( function() {
     renderBattle();
-  }, 10)
+  }, 20)
 
     return <span style={battleBarStyle} className={playerOneType}></span>
   }
@@ -37,16 +37,13 @@ class BattleBar extends Component {
 
     if (pokemonHealth === 0) {
       dispatch(updateResults(playerTwo.pokemon, playerOne.pokemon));
-      debugger;
       dispatch(startBattle(false));
 
     } else if (pokemonHealth === 100) {
       dispatch(updateResults(playerOne.pokemon, playerTwo.pokemon));
-      debugger;
       dispatch(startBattle(false));
 
-    }
-    else {
+    } else {
       this.battleCalculation();
     }
   }
@@ -54,10 +51,10 @@ class BattleBar extends Component {
 
   battleCalculation = () => {
     const pokemonHealth = this.state.pokemonHealth;
-    const {playerOne, playerTwo, battleProbability } = this.props;
+    const {battleProbability } = this.props;
 
     //generate a random number up to 99 and if it is lower than the percentage chance of winning for playerOne, then playerOne hits
-    return Math.random() * 100 < battleProbability ? this.setState({pokemonHealth: pokemonHealth + 1}) : this.setState({pokemonHealth: pokemonHealth - 1});
+    return Math.random() * 100 < battleProbability ? this.setState({pokemonHealth: pokemonHealth + 2}) : this.setState({pokemonHealth: pokemonHealth - 2});
   }
 
   render(){
