@@ -37,7 +37,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <header className='navbar navbar-default navbar-static-top'>
+      <header className='navbar navbar-default navbar-static-top' id='header-app'>
         <nav className='container'>
           <div className='navbar-header'>
             <a className='navbar-brand' href='#'>PokeGYM</a>

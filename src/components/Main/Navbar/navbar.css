@@ -1,0 +1,11 @@
+#header-app {
+  background-color: rgb(252, 80, 80);
+}
+
+#header-app a {
+  color: white;
+}
+
+#header-app .navbar-brand {
+  font-size: 25px;
+}

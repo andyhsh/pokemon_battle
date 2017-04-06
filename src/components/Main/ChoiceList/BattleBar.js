@@ -37,10 +37,12 @@ class BattleBar extends Component {
 
     if (pokemonHealth === 0) {
       dispatch(updateResults(playerTwo.pokemon, playerOne.pokemon));
+      debugger;
       dispatch(startBattle(false));
 
     } else if (pokemonHealth === 100) {
       dispatch(updateResults(playerOne.pokemon, playerTwo.pokemon));
+      debugger;
       dispatch(startBattle(false));
 
     }
