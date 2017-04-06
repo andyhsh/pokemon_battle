@@ -33,7 +33,6 @@ class BattleBar extends Component {
   //Logic for deciding when the battle ends, either pokemon health is 0 (playerTwo wins) or pokemon health is 100 (playerOne wins)
   renderBattle = () => {
     const pokemonHealth = this.state.pokemonHealth;
-    const battleCalc = this.battleCalculation;
     const {dispatch, playerOne, playerTwo } = this.props;
 
     if (pokemonHealth === 0) {
@@ -46,14 +45,16 @@ class BattleBar extends Component {
 
     }
     else {
-      battleCalc();
+      this.battleCalculation();
     }
   }
 
 
   battleCalculation = () => {
     const pokemonHealth = this.state.pokemonHealth;
-    return Math.floor(Math.random() * 1.8) === 0 ? this.setState({pokemonHealth: pokemonHealth + 1}) : this.setState({pokemonHealth: pokemonHealth - 1});
+    const {playerOne, playerTwo, battleProbability } = this.props;
+
+    return Math.random() * 100 < battleProbability ? this.setState({pokemonHealth: pokemonHealth + 2}) : this.setState({pokemonHealth: pokemonHealth - 2});
   }
 
   render(){

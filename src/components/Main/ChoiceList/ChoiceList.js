@@ -42,8 +42,30 @@ class ChoiceList  extends Component {
   renderBattleBar = () => {
     const { playerOne, playerTwo, battleBar } = this.props;
 
+
+
     if (this.props.battleBar.inProgress) {
-      return <BattleBar playerOne={playerOne} playerTwo={playerTwo} battleBar={battleBar} />
+
+      //averaged stats of a pokemon
+      let playerOneStats = playerOne.stats.map(stat => {
+        return stat.base_stat;
+      })
+
+      let playerOneStatsSum = playerOneStats.reduce((previous, current) => current += previous);
+      let playerOneStatsAvg = playerOneStatsSum / playerOneStats.length;
+
+      let playerTwoStats = playerTwo.stats.map(stat => {
+        return stat.base_stat;
+      })
+
+      let playerTwoStatsSum = playerTwoStats.reduce((previous, current) => current += previous);
+      let playerTwoStatsAvg = playerTwoStatsSum / playerTwoStats.length;
+
+      //normalise stats to be % of 100 for playerOne
+      const battleProbability = 100 / (playerOneStatsAvg + playerTwoStatsAvg) * playerOneStatsAvg
+      
+      //render battlebar and pass in pokemon stats as props
+      return <BattleBar playerOne={playerOne} playerTwo={playerTwo} battleProbability={battleProbability} battleBar={battleBar} />
     }
   }
 
