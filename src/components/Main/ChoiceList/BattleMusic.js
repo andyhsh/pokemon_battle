@@ -5,7 +5,9 @@ import Sound from 'react-sound';
 class BattleMusic extends Component {
 
   render(){
-    return <Sound url={require(`../../../../public/music/battle2.mp3`)}
+    const music = this.props.music;
+
+    return <Sound url={require(`../../../../public/music/${music}.mp3`)}
             playStatus={Sound.status.PLAYING} />
   }
 }

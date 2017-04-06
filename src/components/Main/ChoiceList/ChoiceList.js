@@ -78,9 +78,19 @@ class ChoiceList  extends Component {
 
   renderBattleMusic = () => {
     const {battleBar} = this.props;
+
     if (battleBar.inProgress) {
-      return <BattleMusic />
+      let music = 'battle2';
+
+      return <BattleMusic music={music}/>
     }
+
+    if (this.props.results.winner.pokemon !== '') {
+      let music = 'victory';
+
+      return <BattleMusic music={music}/>
+    }
+
   }
 
   //render winner pokemon message
