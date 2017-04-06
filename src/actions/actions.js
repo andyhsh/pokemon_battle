@@ -125,25 +125,27 @@ export function startBattle(bool){
   }
 }
 
-export function updateResults(winner, loser){
+/*export function updateResults(winner, loser){
   return {
     type: 'UPDATE_RESULTS',
     winner,
     loser
   }
-}
+}*/
 
-/*export function updateResultsDatabase(winner, loser){
+export function updateResults(winner, loser){
     return (dispatch) => {
-        firebase.database().ref().set({
+        firebase.database().ref().push({
             winner: winner,
             loser: loser
         });
-        type: 'UPDATE_RESULTS',
-        winner,
-        loser
+        dispatch({
+          type: 'UPDATE_RESULTS',
+          winner,
+          loser
+      });
     }
-}*/
+}
 
 /*
  * Reset state
