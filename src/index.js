@@ -4,6 +4,7 @@ import App from './App';
 import './index.css';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import Battlepage from './components/Battle/BattlePage';
+import Historypage from './components/History/History';
 
 const notFound = ({location}) => (
   <div>
@@ -16,6 +17,7 @@ ReactDOM.render(
     <Switch>
       <Route exact path="/" component={App}/>
       <Route exact path="/battle" component={Battlepage}/>
+      <Route exact path="/history" component={Historypage}/>
       <Route component={notFound}/>
     </Switch>
   </Router>
