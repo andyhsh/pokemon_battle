@@ -4,7 +4,7 @@ const initialState = {
                             {fighterA: {userId: '', pokemon: '', pokemonId: '', stats: [], type: []}, loading: undefined },
                             {fighterB: {userId: '', pokemon: '', pokemonId: '', stats: [], type: []}, loading: undefined },
                             {battle: {winner: {userId: '', pokemon: ''}, loser: {userId: '', pokemon: ''} } },
-                            {battleBar: {fighterA: 50, fighterB: 50, inProgress: false } }
+                            {battleBar: { inProgress: false } }
                           ]
                         };
 

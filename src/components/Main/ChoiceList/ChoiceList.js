@@ -6,6 +6,7 @@ import Loading from '../Loading/Loading';
 import BattleButton from '../ChoiceList/BattleButton';
 import ReplayButton from '../ChoiceList/ReplayButton';
 import BattleBar from '../ChoiceList/BattleBar';
+import BattleMusic from '../ChoiceList/BattleMusic';
 
 import { startBattle, resetStates } from '../../../actions/actions';
 
@@ -63,7 +64,7 @@ class ChoiceList  extends Component {
 
       //normalise stats to be % of 100 for playerOne
       const battleProbability = 100 / (playerOneStatsAvg + playerTwoStatsAvg) * playerOneStatsAvg
-      
+
       //render battlebar and pass in pokemon stats as props
       return <BattleBar playerOne={playerOne} playerTwo={playerTwo} battleProbability={battleProbability} battleBar={battleBar} />
     }
@@ -73,6 +74,13 @@ class ChoiceList  extends Component {
   handleBattleClick = () => {
     const { dispatch } = this.props;
     dispatch(startBattle(true));
+  }
+
+  renderBattleMusic = () => {
+    const {battleBar} = this.props;
+    if (battleBar.inProgress) {
+      return <BattleMusic />
+    }
   }
 
   //render winner pokemon message
@@ -106,6 +114,7 @@ class ChoiceList  extends Component {
           {this.renderBattleButton()}
           {this.renderWinner()}
           {this.renderReplayButton()}
+          {this.renderBattleMusic()}
           {this.renderBattleBar()}
         </div>
       </div>
