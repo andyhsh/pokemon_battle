@@ -3,7 +3,17 @@ import { Provider } from 'react-redux';
 import Main from './components/Main/Main';
 import * as firebase from 'firebase';
 
+<<<<<<< HEAD
 import { playerOneChoosePokemon, playerTwoChoosePokemon, startBattle } from './actions/actions.js';
+=======
+var config = {
+  apiKey: "AIzaSyCCwV3k-R-ByI3uEcoQhxVumO8J-F2Rs3E",
+  authDomain: "pokemonbattle-2dbd2.firebaseapp.com",
+  databaseURL: "https://pokemonbattle-2dbd2.firebaseio.com",
+  storageBucket: "pokemonbattle-2dbd2.appspot.com"
+};
+
+firebase.initializeApp(config);
 
 // Init Store
 import { initStore } from './store/store'
@@ -15,6 +25,7 @@ store.subscribe( () => {
   console.log('New State', state);
 });
 
+<<<<<<< HEAD
 const config = {
   apiKey: "AIzaSyCCwV3k-R-ByI3uEcoQhxVumO8J-F2Rs3E",
   authDomain: "pokemonbattle-2dbd2.firebaseapp.com",
@@ -44,7 +55,6 @@ firebase.initializeApp(config);
 //   }
 // })
 
-// Route store to Main container
 class App extends Component {
   render() {
     return (
