@@ -55,22 +55,7 @@
   padding-right: 0px;
 }
 
-/* Battle bar styling */
-#battle-bar {
-  height: 30px;
-  position: relative;
-  margin-bottom: 4px;
-}
-
-#battle-bar > span {
-  display: block;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  border-right: 5px;
-  border-color: white;
-  color: white;
-}
+/* Pokemon types styling */
 
 .normal {
   background-color: #A8A77A
@@ -130,4 +115,23 @@
 
 .dragon {
   background-color: #6F35FC
+}
+
+/* Battle bar styling */
+#battle-bar {
+  height: 30px;
+  position: relative;
+  margin-bottom: 4px;
+  border-radius: 25px;
+}
+
+#battle-bar > span {
+  display: block;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-right: 5px;
+  border-color: white;
+  color: white;
+  border-radius: 25px 0px 0px 25px;
 }

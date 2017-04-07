@@ -1,5 +1,5 @@
-import { pokeApi } from '../api/api';
-// import * as firebase from 'firebase';
+//import { pokeApi } from '../api/api';
+import * as firebase from 'firebase';
 
 /*
  * fetch pokemon from pokeAPI
@@ -59,6 +59,12 @@ export function playerOneChoosePokemon(id){
       })
       .then(pokemon => {
         dispatch(setPlayerOnePokemon(pokemon));
+
+        //save data to database
+        firebase.database().ref().child('battle').set({
+          playerOne: {name: pokemon.name, id: pokemon.forms[0].url.match(/([^\/]*)\/*$/)[1]}
+
+        })
       }).catch(error => {
         throw(error);
       });
@@ -94,6 +100,11 @@ export function playerTwoChoosePokemon(id){
       })
       .then(pokemon => {
         dispatch(setPlayerTwoPokemon(pokemon));
+
+        //save data to database
+        firebase.database().ref().child('battle').update({
+          playerTwo: {name: pokemon.name, id: pokemon.forms[0].url.match(/([^\/]*)\/*$/)[1]}
+        })
       }).catch(error => {
         throw(error);
       });
@@ -119,17 +130,30 @@ export function setPlayerTwoPokemon(pokemon){
  */
 
 export function startBattle(bool){
-  return {
-    type: 'START_BATTLE',
-    start: bool
+  return (dispatch) => {
+    //make sure both players start battle in sync
+    firebase.database().ref().child('battle').update({
+      battle: bool
+    });
+    dispatch({
+      type: 'START_BATTLE',
+      start: bool
+    });
   }
 }
 
 export function updateResults(winner, loser){
-  return {
-    type: 'UPDATE_RESULTS',
-    winner,
-    loser
+  return (dispatch) => {
+    let results = JSON.stringify({winner, loser});
+    localStorage.setItem('results', results);
+    let retrieve = localStorage.getItem('results');
+    console.log('retrieve: ', JSON.parse(retrieve));
+
+    dispatch({
+      type: 'UPDATE_RESULTS',
+      winner,
+      loser
+    });
   }
 }
 

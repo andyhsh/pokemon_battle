@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+//import * as firebase from 'firebase';
 
 import Choice from '../Choice/Choice';
 import Loading from '../Loading/Loading';

@@ -25,7 +25,7 @@ class BattleBar extends Component {
     //set game speed
     setTimeout( function() {
     renderBattle();
-  }, 20)
+  }, 10)
 
     return <span style={battleBarStyle} className={playerOneType}></span>
   }
@@ -54,7 +54,7 @@ class BattleBar extends Component {
     const {battleProbability } = this.props;
 
     //generate a random number up to 99 and if it is lower than the percentage chance of winning for playerOne, then playerOne hits
-    return Math.random() * 100 < battleProbability ? this.setState({pokemonHealth: pokemonHealth + 2}) : this.setState({pokemonHealth: pokemonHealth - 2});
+    return Math.random() * 100 < battleProbability ? this.setState({pokemonHealth: pokemonHealth + 1}) : this.setState({pokemonHealth: pokemonHealth - 1});
   }
 
   render(){

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Sound from 'react-sound';
 
-//individual Pokemon => dumb component
 class BattleMusic extends Component {
 
   render(){
