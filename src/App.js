@@ -4,7 +4,8 @@ import Main from './components/Main/Main';
 import * as firebase from 'firebase';
 
 import { playerOneChoosePokemon, playerTwoChoosePokemon, startBattle } from './actions/actions.js';
-var config = {
+
+const config = {
   apiKey: "AIzaSyCCwV3k-R-ByI3uEcoQhxVumO8J-F2Rs3E",
   authDomain: "pokemonbattle-2dbd2.firebaseapp.com",
   databaseURL: "https://pokemonbattle-2dbd2.firebaseio.com",
@@ -22,16 +23,6 @@ store.subscribe( () => {
   const state = store.getState();
   console.log('New State', state);
 });
-
-const config = {
-  apiKey: "AIzaSyCCwV3k-R-ByI3uEcoQhxVumO8J-F2Rs3E",
-  authDomain: "pokemonbattle-2dbd2.firebaseapp.com",
-  databaseURL: "https://pokemonbattle-2dbd2.firebaseio.com",
-  storageBucket: "pokemonbattle-2dbd2.appspot.com"
-};
-
-//initialize and instance of firebase
-firebase.initializeApp(config);
 
 // //setup firebase and set initial pokemon choices
 // firebase.database().ref('battle').on('value', snapshot => {
