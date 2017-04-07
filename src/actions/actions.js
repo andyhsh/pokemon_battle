@@ -133,19 +133,19 @@ export function updateResults(winner, loser){
   }
 }
 
-// export function updateResults(winner, loser){
-//     return (dispatch) => {
-//         firebase.database().ref().push({
-//             winner: winner,
-//             loser: loser
-//         });
-//         dispatch({
-//           type: 'UPDATE_RESULTS',
-//           winner,
-//           loser
-//       });
-//     }
-// }
+/*export function updateResults(winner, loser){
+    return (dispatch) => {
+        firebase.database().ref().push({
+            winner: winner,
+            loser: loser
+        });
+        dispatch({
+            type: 'UPDATE_RESULTS',
+            winner,
+            loser
+        });
+    }
+}*/
 
 /*
  * Reset state
